@@ -204,18 +204,6 @@ class DisplayObject extends EventDispatcher implements IBitmapDrawable
 	@:noCompletion private static var __tempStack:ObjectPool<Vector<DisplayObject>> = new ObjectPool<Vector<DisplayObject>>(function() return
 		new Vector<DisplayObject>(), function(stack) stack.length = 0);
 
-	#if false
-	/**
-		The current accessibility options for this display object. If you modify the `accessibilityProperties`
-		property or any of the fields within `accessibilityProperties`, you must call the
-		`Accessibility.updateProperties()` method to make your changes take effect.
-
-		**Note:** For an object created in the Flash authoring environment, the value of `accessibilityProperties`
-		is prepopulated with any information you entered in the Accessibility panel for that object.
-	**/
-	// @:noCompletion @:dox(hide) public var accessibilityProperties:openfl.accessibility.AccessibilityProperties;
-	#end
-
 	/**
 		Indicates the alpha transparency value of the object specified. Valid
 		values are 0 (fully transparent) to 1 (fully opaque). The default value is 1.
@@ -272,32 +260,6 @@ class DisplayObject extends EventDispatcher implements IBitmapDrawable
 		@see [Applying blending modes](https://books.openfl.org/openfl-developers-guide/display-programming/manipulating-display-objects/applying-blending-modes.html)
 	**/
 	public var blendMode(get, set):BlendMode;
-
-	#if false
-	/**
-		Sets a shader that is used for blending the foreground and background. When the `blendMode` property is set
-		to `BlendMode.SHADER`, the specified Shader is used to create the blend mode output for the display object.
-
-		Setting the `blendShader` property of a display object to a Shader instance automatically sets the display
-		object's `blendMode` property to `BlendMode.SHADER`. If the `blendShader` property is set (which sets the
-		`blendMode` property to `BlendMode.SHADER`), then the value of the `blendMode` property is changed, the
-		blend mode can be reset to use the blend shader simply by setting the `blendMode` property to
-		`BlendMode.SHADER`. The `blendShader` property does not need to be set again except to change the shader
-		that's used for the blend mode.
-
-		The Shader assigned to the `blendShader` property must specify at least two `image4` inputs. The inputs do
-		not need to be specified in code using the associated ShaderInput objects' input properties. The background
-		display object is automatically used as the first input (the input with index 0). The foreground display
-		object is used as the second input (the input with index 1). A shader used as a blend shader can specify more
-		than two inputs. In that case, any additional input must be specified by setting its ShaderInput instance's
-		`input` property.
-
-		When you assign a Shader instance to this property the shader is copied internally. The blend operation uses
-		that internal copy, not a reference to the original shader. Any changes made to the shader, such as changing
-		a parameter value, input, or bytecode, are not applied to the copied shader that's used for the blend mode.
-	**/
-	// @:noCompletion @:dox(hide) @:require(flash10) public var blendShader(null, default):Shader;
-	#end
 
 	/**
 		All vector data for a display object that has a cached bitmap is drawn
@@ -686,34 +648,6 @@ class DisplayObject extends EventDispatcher implements IBitmapDrawable
 	**/
 	@:keep public var rotation(get, set):Float;
 
-	#if false
-	/**
-		Indicates the x-axis rotation of the DisplayObject instance, in degrees, from its original orientation
-		relative to the 3D parent container. Values from 0 to 180 represent clockwise rotation; values from 0 to
-		-180 represent counterclockwise rotation. Values outside this range are added to or subtracted from 360 to
-		obtain a value within the range.
-	**/
-	// @:noCompletion @:dox(hide) @:require(flash10) public var rotationX:Float;
-	#end
-	#if false
-	/**
-		Indicates the y-axis rotation of the DisplayObject instance, in degrees, from its original orientation
-		relative to the 3D parent container. Values from 0 to 180 represent clockwise rotation; values from 0 to
-		-180 represent counterclockwise rotation. Values outside this range are added to or subtracted from 360 to
-		obtain a value within the range.
-	**/
-	// @:noCompletion @:dox(hide) @:require(flash10) public var rotationY:Float;
-	#end
-	#if false
-	/**
-		Indicates the z-axis rotation of the DisplayObject instance, in degrees, from its original orientation
-		relative to the 3D parent container. Values from 0 to 180 represent clockwise rotation; values from 0 to
-		-180 represent counterclockwise rotation. Values outside this range are added to or subtracted from 360 to
-		obtain a value within the range.
-	**/
-	// @:noCompletion @:dox(hide) @:require(flash10) public var rotationZ:Float;
-	#end
-
 	/**
 		The current scaling grid that is in effect. If set to `null`,
 		the entire display object is scaled normally when any scale transformation
@@ -802,17 +736,6 @@ class DisplayObject extends EventDispatcher implements IBitmapDrawable
 		@see [Manipulating size and scaling objects](https://books.openfl.org/openfl-developers-guide/display-programming/manipulating-display-objects/manipulating-size-and-scaling-objects.html)
 	**/
 	@:keep public var scaleY(get, set):Float;
-
-	#if false
-	/**
-		Indicates the depth scale (percentage) of an object as applied from the registration point of the object.
-		The default registration point is (0,0). 1.0 is 100% scale.
-
-		Scaling the local coordinate system changes the `x`, `y` and `z` property values, which are defined in whole
-		pixels.
-	**/
-	// @:noCompletion @:dox(hide) @:require(flash10) public var scaleZ:Float;
-	#end
 
 	/**
 		The scroll rectangle bounds of the display object. The display object is
